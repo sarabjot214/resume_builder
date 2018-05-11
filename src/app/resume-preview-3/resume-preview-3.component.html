@@ -1,0 +1,189 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<body class="rs2">
+  <div id="download">
+  <div class="resume-wrapper2">
+  <section class="profile2 section-padding2">
+    <div class="container2">
+      <div class="picture-resume-wrapper2">
+        <div class="picture-resume2">
+        <span><p [froalaView]="personalDetails.image"  id="pic">{{personalDetails.image}}</p></span>
+        <svg version="1.1" viewBox="0 0 350 350">
+  
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
+    </filter>
+  </defs>
+  
+  
+<!-- <g filter="url(#goo)" >  
+  
+  <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130"/>
+  
+  <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7"/>
+  <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7"/>
+
+</g>   -->
+</svg>
+      </div>
+         <div class="clearfix2"></div>
+ </div>
+      <div class="name-wrapper2">
+        <h1 class="h10" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
+      </div>
+      <div class="clearfix2"></div>
+      <div class="contact-info1 clearfix2">
+        <ul class="list-titles2">
+          <li>Designation</li>
+          <li>Mail</li>
+          <li>Call</li>
+          <li>DOB</li>
+        </ul>
+        <ul class="list-content2 ">
+          <li  [froalaView]="personalDetails.profession">{{personalDetails.profession}}>/li> 
+              <li  [froalaView]="personalDetails.email">{{personalDetails.email}}>/li> 
+                  <li  [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}>/li> 
+                      <li  [froalaView]="personalDetails.dob">{{personalDetails.dob}}>/li> 
+        </ul>
+      </div>
+      <br><br>
+      
+      <div class="section-wrapper2" *ngIf="links.activateLanguages==1">
+        <h3 class="section-title2">Language Known</h3>  
+          <ul *ngFor="let language of languages;let i=index">
+        <li  [froalaView]="languages[i]" *ngIf="language!=''">{{languages[i]}}
+        </li>
+  
+          </ul>
+        
+      </div>
+      <br>
+      <br>
+      <!--
+      <div class="contact-presentation2"> Summary
+      <p><span class="bold">Lorem</span> ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod congue nisi, nec consequat quam. In consectetur faucibus turpis eget laoreet. Sed nec imperdiet purus. </p>
+    </div>
+  -->
+
+    </div>
+  </section>
+  
+  <section class="experience2 section-padding2">
+    <div class="container2">
+        <div class="experience-wrapper2 ">
+            <h3 class="experience-title2">Education</h3>
+            <table class="table table-striped" id="education-table" width="100%">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Standard</th>
+                    <th>School / College</th>
+                    <th>Year of Passing</th>
+                    <th>Percentage</th>
+  
+  
+                  </tr>
+                </thead>
+                <tbody id="tbleducationinfo">
+  
+                    <tr *ngFor="let education of educationDetails;let i=index">
+  
+                    <td  *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{i+1}}</td>
+                    <td class="std" [froalaView]="educationDetails[i].Qualification"  *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Qualification}} >
+                    </td>
+                    <td class="std" [froalaView]="educationDetails[i].schoolName"  *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].schoolName}}></td>
+                    <td class="std" [froalaView]="educationDetails[i].yearOfPassing"  *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].yearOfPassing}}>
+                    </td>
+                    <td class="std" [froalaView]="educationDetails[i].Marks"  *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Marks}}></td>
+  
+  
+                  </tr>
+                 
+                </tbody>
+              </table>
+          </div>
+      <h3 class="experience-title2">Experience</h3>
+      
+      <div class="experience-wrapper2" *ngFor="let experience of experiences;let i=index">
+        <div class="company-wrapper2 clearfix2" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">
+          <div class="experience-title2" [froalaView]="experiences[i].company" >{{experiences[i].company}}</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
+          <div class="time2" [froalaView]="experiences[i].duration">{{experiences[i].duration}}</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
+        </div>
+        
+        <div class="job-wrapper2 clearfix2" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''" >
+          <div class="experience-title2" [froalaView]="experiences[i].designation">{{experiences[i].designation}} </div> <!-- JOB TITLE  -->
+          <div class="company-description2" [froalaView]="experiences[i].details">
+            <p>{{experiences[i].details}}  </p><!-- JOB DESCRIPTION  -->
+          </div>
+        </div>
+        
+       
+        
+       
+        
+      </div><!--Skill experience-->
+      
+      <div class="section-wrapper2 ">
+        <h3 class="section-title2">Skills</h3>  <!-- YOUR SET OF SKILLS  -->
+          <ul *ngFor="let skill of skills;let j=index">
+            <li [froalaView]="skills[j].name" *ngIf="skill.name!=''">{{skills[j].name}}></li>
+         </ul>
+      </div>
+   
+      <div class="section-wrapper2 " *ngIf="links.activateHobbies==1">
+        <h3 class="section-title2"> Hobbies</h3>  
+          <ul *ngFor="let hobby of hobbies;let i=index">
+        <li  [froalaView]="hobbies[i]" *ngIf="hobby!=''">{{hobbies[i]}}
+        </li>
+       
+          </ul>
+        
+      </div>
+      <div class="section-wrapper2 " *ngIf="links.activateInterests==1">
+        <h3 class="section-title2" >Interest</h3>  
+          <ul *ngFor="let interest of interests;let i=index">
+        <li  [froalaView]="interests[i]" *ngIf="interest!=''">{{interests[i]}}
+        </li>
+        
+          </ul>
+        
+      </div>
+      <div *ngIf="links.activateCertificates==1">
+      <h3 class="experience-title2" >Certificates</h3>
+      
+      <div class="experience-wrapper2" >
+        
+        <div class="job-wrapper2 clearfix2" *ngFor="let certificate of certificates;let i=index" >
+          <div class="experience-title2"  [froalaView]="certificates[i]" *ngIf="certificate!=''">{{certificates[i]}}</div> 
+          
+        </div>
+      
+        
+        
+      </div>
+    </div>
+    </div>
+   
+  </section>
+  
+  <div class="clearfix2">
+    
+  </div>
+</div>
+</div>
+<div class="footer">
+    <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
+    <button type="button" (click)="onLogin()" class="btn btn-primary" *ngIf='!login'>Login To Download Resume</button>
+      <button type="button" (click)="downloadPDF()" class="btn btn-primary" *ngIf='login'>Download</button> 
+</div>
+</body>

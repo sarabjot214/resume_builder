@@ -1,0 +1,119 @@
+<div class="well" style="margin-top: 30px;width:100%;padding-right: 75px;padding-left: 75px;padding-top: 35px;">
+    <div class="row">
+        <div class="col-sm-11">
+            <h2 style="padding-left:33px;" [froalaView]="experiencesTitle.title">{{experiencesTitle.title}}</h2>
+        </div>
+        <div class="col-sm-1 text-right columns" style="padding-right:53px;">
+          
+            <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popexperienceTitle" popoverTitle="Edit Title ">
+                <i class="fa fa-pencil-square fa-x"></i>
+              </button>
+              <ng-template #popexperienceTitle>
+                <p [froalaEditor]='options' [(froalaModel)]="experiencesTitle.title"></p>
+              </ng-template>
+        </div>
+      </div>
+    <div class="div-center" class="details" [ngSwitch]='froalaId'>
+  
+      <form >
+        
+          <div class="row text-center columns">
+              <div class="col-sm-3">
+                <div class="col-sm-8">
+                    <label class="personaldetail" for="qualification" style="padding-right:190px" [froalaView]="experiencesTitle.designationtitle">{{experiencesTitle.designationtitle}}</label>
+                </div>
+                <div class="col-sm-4">
+                    <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popdesignation" popoverTitle="Edit Title ">
+                        <i class="fa fa-pencil-square fa-x"></i>
+                      </button>
+                </div>
+                  <ng-template #popdesignation>
+                    <p [froalaEditor]='options' [(froalaModel)]="experiencesTitle.designationtitle"></p>
+                  </ng-template>
+              </div>
+              <div class="col-sm-3">
+                <div class="col-sm-10">
+                    <label class="personaldetail" for="school" style="padding-right:150px" [froalaView]="experiencesTitle.companytitle">{{experiencesTitle.companytitle}}</label>
+                </div>
+                <div class="col-sm-2">
+                    <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popcompanytitle" popoverTitle="Edit Title ">
+                        <i class="fa fa-pencil-square fa-x"></i>
+                      </button>
+                </div>
+                  <ng-template #popcompanytitle>
+                    <p [froalaEditor]='options' [(froalaModel)]="experiencesTitle.companytitle"></p>
+                  </ng-template>
+              </div>
+              <div class="col-sm-3">
+                <div class="col-sm-10">
+                    <label class="personaldetail" for="yop" style="padding-right:210px" [froalaView]="experiencesTitle.durationtitle">{{experiencesTitle.durationtitle}}</label>
+                </div>
+                <div class="col-sm-2">
+                    <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popdurationtitle" popoverTitle="Edit Title ">
+                        <i class="fa fa-pencil-square fa-x"></i>
+                      </button>
+                </div>
+                  <ng-template #popdurationtitle>
+                    <p [froalaEditor]='options' [(froalaModel)]="experiencesTitle.durationtitle"></p>
+                  </ng-template>
+              </div>
+              <div class="col-sm-3">
+                <div class="col-sm-10">
+                    <label class="personaldetail" for="percentage" style="padding-right:190px" [froalaView]="experiencesTitle.companytitle">{{experiencesTitle.companytitle}}</label>
+                </div>
+                <div class="col-sm-2">
+                    <button type="btn btn-outline-secondary text-right columns" placement="top" [ngbPopover]="popdetailstitle" popoverTitle="Edit Title ">
+                        <i class="fa fa-pencil-square fa-x"></i>
+                      </button>
+                </div>
+                  <ng-template #popdetailstitle>
+                    <p [froalaEditor]='options' [(froalaModel)]="experiencesTitle.detailstitle"></p>
+                  </ng-template>
+              </div>
+            </div>
+           <hr>
+            <div *ngFor="let experience of experiences;let i=index">
+        <div class="row">
+          <div class="col-sm-11">
+            <h2 class="personaldetail" for="inputName">Experience #{{i+1}}</h2>
+          </div>
+          <div class="col-sm-1 text-right columns">
+            
+            <button type="btn btn-danger" (click)="onRemoveDetails(i)">
+                <i class="fa fa-close fa-x"></i>
+              </button>
+          </div>
+        </div>
+        <br>
+  
+        <div class="row">
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].designation">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].company">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea" [froalaEditor]="options" [(froalaModel)]="experiences[i].duration">
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p type="date" class="form-control" id="textarea"  [froalaEditor]="options" [(froalaModel)]="experiences[i].details"></p>
+          </div>
+        </div>
+  <br>
+  <hr>
+  <br>
+</div>
+      </form>
+  
+      <button type="button" class="btn btn-dark btn-md" (click)="onAddDetails()">Add New Field</button>
+      
+      <button type="button" style="float:right" class="btn btn-dark btn-md" (click)="onPreview()">Preview</button>
+  
+  
+    </div>
+  </div>
+  

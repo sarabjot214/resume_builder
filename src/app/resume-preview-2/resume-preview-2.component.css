@@ -1,0 +1,282 @@
+
+#download {
+    background: #e1e1ea;
+    font-family: 'Roboto';
+    margin: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    height:100%;
+  }
+  /**Left side CSS**/
+  
+  .left-box3{
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: #b30000;
+    height: 961px;
+    width: 300px;
+    box-sizing: border-box;
+    margin: 15px 15px 15px 15px;
+  }
+  
+  /**Left side content CSS**/
+  .top-left3{
+    position: relative;
+    border-style: solid;
+    border-width: 0px 0px 3px 0px;
+    box-sizing: border-box;
+    height: 25%;
+    margin: 0px;
+  }
+  
+  .name3 {
+      position: absolute;
+      font-size: 40px;
+      color: white;
+      bottom: 8px;
+      left: 16px;
+      box-sizing: border-box;
+  }
+  
+  img { 
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+  }
+  
+  .objective3 {
+     border-style: solid;
+     border-width: 0px 0px 2px 0px ;
+     margin: 15px;
+     padding: 10px;
+     box-sizing: border-box;
+   
+  }
+  
+  .objective-img3{
+    float: left;
+    border: solid;
+    border-width: 3px;
+    box-sizing: border-box;
+    width: 30px;
+    height: auto;
+  }
+  
+  .objective-text3{
+    display: inline-block;
+    text-align: left;
+    color: white;
+    box-sizing: border-box;
+    margin: 15px 15px 15px 15px;
+  }
+  
+  .phone3{
+     border-style: solid;
+     border-width: 0px 0px 2px 0px;
+     box-sizing: border-box;
+     margin: 15px;
+     padding: 10px;
+  }
+  
+  .phone-text3 {
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    margin: 15px 15px 15px 15px;
+    box-sizing: border-box;
+  }
+  
+  .email3{
+     border-style: solid;
+     border-width: 0px 0px 0px 0px;
+     box-sizing: border-box;
+     margin: 15px;
+     padding: 10px;
+  }
+  
+  .email-text3 {
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    margin: 15px 15px 15px 15px;
+    box-sizing: border-box;
+  }
+  .address3{
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    box-sizing: border-box;
+    margin: 15px;
+    padding: 10px;
+  }
+  
+  .address-text3 {
+   display: inline-block;
+   text-align: left;
+   font-size: 20px;
+   color: white;
+   margin: 15px 15px 15px 15px;
+   box-sizing: border-box;
+  }
+  /**work experience box**/
+  .work-experience3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    height: 300px;
+    width: 860px;
+    margin: 15px 15px 15px 15px;
+    box-sizing: border-box;
+  }
+  
+  .work-img3 {
+    float: left;
+    background-color: #b30000;
+    height: auto;
+    width: 50px;
+    margin: 25px 30px 100% 30px;
+    box-sizing: border-box;
+  }
+  
+  .job-box3{
+    float: left;
+    border: solid;
+    border-width: 0px 0px 3px 0px;
+    box-sizing: border-box;
+    margin: 0px 10px 0px 0px;
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    height: auto;
+  }
+  
+  .job-box3:hover3 {
+    background-color: gray;
+  }
+  
+  .job-title3 {
+    font-weight: bold;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  .job-date3{
+    color: #b30000;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  
+  .job-description3{
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  /**Education box**/
+  .education3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 300px;
+    width: 860px;
+    margin: 15px 15px 15px 15px;
+  }
+  
+  /**interest box**/
+  .interest3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 200px;
+    width: 81%;
+    margin: 15px 15px 15px 15px;
+  }
+  /**hobbies box**/
+  .hobbies3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 200px;
+    width: 81%;
+    margin: 15px 15px 15px 15px;
+  }
+  .certificates3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 300px;
+    width: 81%;
+    margin: 15px 15px 15px 15px;
+  }
+  
+  .language3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 200px;
+    width: 81%;
+    margin: 15px 15px 15px 15px;
+  }
+  .summary3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 200px;
+    width: 81%;
+    margin: 15px 15px 15px 15px;
+  }
+  /**Skills box**/
+  .skills3 {
+    float: left;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
+    box-sizing: border-box;
+    height: 300px;
+    width: 860px;
+    margin: 15px 15px 15px 15px;
+  }
+  
+  
+  .ul3 {
+    list-style: circle;
+    margin: 10px 20px 20px 45px;
+  }
+  .ul13 {
+    list-style: none;
+    margin: 10px 20px 20px 45px;
+  }
+  .ul23 {
+    list-style: none;
+    margin: 10px 20px 20px 45px;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px
+ }
+ /* .download{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  marker-end: 20px;
+} */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px
+ }

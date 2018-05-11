@@ -1,0 +1,110 @@
+
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  <script src="../node_modules/angular-save-html-to-pdf/dist/saveHtmlToPdf.js"></script>
+  <script> </script>
+<body>
+    <!-- below block will be saved as pdf -->
+ 
+    <!-- <div pdf-save-content="idOne" >
+        Hello Someone
+    </div> -->
+<div id="download" >
+    <div id="page-wrap">
+        <p [froalaView]="personalDetails.image"  id="pic">{{personalDetails.image}}</p>
+      
+        <div id="contact-info" class="vcard">
+        
+            <!-- Microformats! -->
+        
+            <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
+        
+            <p>
+                Phone No: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
+                Email: <a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
+            </p>
+            <p *ngFor="let newField of newFields,let i=index">
+                  <a [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</a>
+                  <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
+                </p>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <dl>
+            <dd class="clear"></dd>
+            
+            <dt>Education</dt>
+            <dd *ngFor="let education of educationDetails;let i=index">
+              <h2 [froalaView]="educationDetails[i].Qualification" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Qualification}}</h2>
+                 <p [froalaView]="educationDetails[i].schoolName" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].schoolName}}</p>
+                 <p [froalaView]="educationDetails[i].Marks" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Marks}}</p>
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Skills</dt>
+            <dd *ngFor="let skill of skills;let i=index">
+                <h2 [froalaView]="skills[i].name" *ngIf="skill.name!=''">{{skills[i].name}}</h2>
+                <p [froalaView]="skills[i].details" *ngIf="skill.name!=''">{{skills[i].details}}</p>
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Experience</dt>
+            <dd *ngFor="let experience of experiences;let i=index">
+                <h2 [froalaView]="experiences[i].designation" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].designation}} </h2>
+                <span [froalaView]="experiences[i].company" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].company}}</span><br>
+                <span [froalaView]="experiences[i].duration" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].duration}}</span>
+                <p [froalaView]="experiences[i].details" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">
+                    {{experiences[i].details}}
+                </p>
+            </dd>
+            
+            <dd class="clear"></dd>
+      
+            <div *ngIf="links.activateHobbies==1">
+                  <dt>Hobbies</dt>
+                  <dd *ngFor="let hobby of hobbies;let i=index" [froalaView]="hobbies[i]">
+                      <p *ngIf="hobby!=''">{{hobbies[i]}}</p>
+                    </dd>
+            </div>
+            <dd class="clear"></dd>
+      
+            <div *ngIf="links.activateInterests==1">
+                  <dt>Interests</dt>
+                  <dd *ngFor="let interest of interests;let i=index" [froalaView]="interests[i]">
+                      <p *ngIf="interest!=''">{{interests[i]}}</p>
+                    </dd>
+            </div>
+            <dd class="clear"></dd>
+      
+            <div *ngIf="links.activateCertificates==1">
+                  <dt>Certificates</dt>
+                  <dd *ngFor="let certificate of certificates;let i=index" [froalaView]="certificates[i]">
+                      <p *ngIf="certificate!=''">{{certificates[i]}}</p>
+                    </dd>
+            </div>
+            <dd class="clear"></dd>
+      
+            <div *ngIf="links.activateLanguages==1">
+                  <dt>Languages</dt>
+                  <dd *ngFor="let language of languages;let i=index" [froalaView]="languages[i]">
+                        <p *ngIf="language!=''">{{languages[i]}}</p>
+                    </dd>
+            </div>
+            <dd class="clear"></dd>
+      
+        </dl>
+        
+        <div class="clear"></div>
+      </div>
+</div>
+
+<div class="footer">
+    <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
+    <button type="button" (click)="onLogin()" class="btn btn-primary" *ngIf='!login'>Login To Download Resume</button>
+      <button type="button" (click)="downloadPDF()" class="btn btn-primary" *ngIf='login'>Download</button> 
+</div>
+</body>

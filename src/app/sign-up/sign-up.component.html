@@ -1,0 +1,85 @@
+<!-- <div class="container text-center">
+  <br><br><br><br><br>
+  <p>
+    <b>Name </b>
+    <input type="text" [(ngModel)]="user.name" required/>
+  </p>
+  <br>
+  <p>
+    <b>Email</b>
+    <input type="email" [(ngModel)]="user.email" required/>
+  </p>
+  <br>
+  <p>
+    <b>Password </b>
+    <input type="password" [(ngModel)]="user.password" required/>
+  </p>
+  <br>
+  <br>
+  <button (click)="onSignIn()">SignIn</button>
+  <button (click)="onBack()">Back</button>
+</div> -->
+<br>
+<div class="container">
+    <div class="alert alert-success" role="alert" data-auto-dismiss="2000" *ngIf='valid'>
+      <div class="row">
+      <div class="col-lg-10">
+          <strong>User Registered Successfully</strong>
+      </div>
+       <div class="col-lg-2">
+          <a routerLink="/log-in">Login</a> to Proceed
+       </div>
+      </div>
+    </div>
+    <h1>Signup Form</h1>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+        type="text" 
+        id="username" 
+        class="form-control"
+        [(ngModel)]="user.name"
+        name="name"
+        required>
+         <!-- [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}" required> -->
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+        type="email" 
+        id="email" 
+        class="form-control" 
+        [(ngModel)]="user.email"
+        name="email"
+        required
+        email
+        #email="ngModel">
+        <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter A Valid Email</span>
+        <!-- [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" required> -->
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+        type="password" 
+        id="password" 
+        class="form-control" 
+        [(ngModel)]="user.password"
+        name="password"
+        required>
+        <!-- [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required> -->
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid">SignIn</button>
+      <button class="btn btn-success" (click)="onBack()">Back</button>
+
+    </form>
+</div>
+<br>
+<div class="container" *ngIf='!validCredentials'>
+    <p class="check">
+      User with this Email Id already exists
+    </p>
+  </div>

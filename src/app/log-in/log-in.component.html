@@ -1,0 +1,54 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+        <h1>Login Form</h1>
+    </div>
+    <div class="col-lg-2">
+        <p>
+            New User?
+            <a routerLink="/sign-up">SignUp</a>
+          </p>
+    </div>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+      type="email" 
+      id="email" 
+      class="form-control" 
+      [(ngModel)]="user.email"
+      name="email"
+      required
+      email
+      #email="ngModel">
+      <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter A Valid Email</span>
+      <!-- [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" required> -->
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+      type="password" 
+      id="password" 
+      class="form-control" 
+      [(ngModel)]="user.password"
+      name="password"
+      required>
+      <!-- [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required> -->
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!f.valid">LogIn</button>
+    <!-- <button class="btn btn-success" (click)="onBack()">Back</button> -->
+
+  </form>
+  <br>
+</div>
+<div class="container" *ngIf='!validCredentials'>
+  <p class="check">
+    Enter Valid Credentials
+  </p>
+</div>

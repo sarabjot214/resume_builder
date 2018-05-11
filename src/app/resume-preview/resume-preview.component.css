@@ -1,0 +1,106 @@
+body.rs0,
+html {
+    height: 100%;
+    width: 100%;
+}
+body.rs0 {
+    background-color: #c9c9cb;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items:unset;
+}
+.page0 {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    min-height: 60%;
+    max-width: 100%;
+    min-width: 100%;
+    width: auto;
+    background-color: #f0f0f0;
+    box-shadow: -2px 20px 20px rgba(0, 0, 0, 0.3),
+        -4px 10px 40px 5px rgba(0, 0, 0, 0.2);
+}
+.left0 {
+    background: linear-gradient(#333, #222);
+    min-width: 30%;
+    width: 100px;
+    color: #eee;
+    height:100%;
+    padding: 2em 2em;
+}
+.name0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.5em 1em;
+}
+.name0 img {
+    max-width: 184px;
+    width: auto;
+    max-height: 184px;
+    height: auto;
+    border-radius: 50%;
+    margin: 2em 0 1em 0;
+    border: 2px solid #f0f0f020;
+}
+.name0 h3.h30 {
+    font-family: "San Francisco Thin";
+    padding: 0.5em 0;
+}
+.left0 .divider0 {
+    width: 100%;
+    height: 2px;
+    background-color: #f0f0f020;
+}
+.left0 .lan0,
+.left0 .skills0 {
+    padding: 1em 0 2em 0;
+    font-size: 20px;
+}
+.bar0 {
+    padding-top: 1em;
+}
+.bar0 h4.h40 {
+    padding: 0 0 0.4em 0;
+}
+.bar0 > div {
+    width: 80%;
+    margin-left: 10%;
+    height: 2px;
+    background-color: #f0f0f020;
+    border-radius: 1px;
+    position: relative;
+}
+.bar0 > div:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    position: absolute;
+    border-radius: 1px;
+}
+.right0
+{
+    width:100%;
+    padding: 1em 1em;
+}
+
+.download{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px
+}

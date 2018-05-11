@@ -1,0 +1,12 @@
+.btn-primary{
+    border-radius:18px;
+    background-color: white;
+    text-decoration-style: solid;
+   -webkit-text-fill-color: black;
+   border: 2px solid rgb(76, 147, 175);
+   font-weight: bold
+}
+
+.btn-primary:focus {     
+    background-color:rgb(0, 174, 255);    
+}

@@ -1,0 +1,147 @@
+<html>
+<body class="rs0">
+  <div id="download">
+      <div class="page0">
+          <!-- Dark Part -->
+          <div class="left0">
+      
+            <div class="name0">
+              <p [froalaView]="personalDetails.image"  id="pic">{{personalDetails.image}}</p>
+              <h1 class="h10" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
+             
+              <h2 class="h30" [froalaView]="personalDetails.profession">{{personalDetails.profession}}</h2>
+              <h5 class="h10" [froalaView]="personalDetails.dob">{{personalDetails.dob}}</h5>
+              <div class="contact0">  
+                <h3 class="h40" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}>Contact</h3>
+                <p class="p0" [froalaView]="personalDetails.email">{{personalDetails.email}}
+                  <br>Address:
+                  <span [froalaView]="personalDetails.address">{{personalDetails.address}}/</span>
+                </p>
+              </div>
+      
+            </div>
+            <div class="divider0">
+            </div>
+      
+            <div class="skills0">
+              <h3 class="h30">Skills</h3>
+              <dd *ngFor="let skill of skills;let j=index">
+             <li [froalaView]="skills[j].name" *ngIf="skill.name!=''">{{skills[j].name}}</li>
+             </div>
+            <div class="divider0">
+            </div>
+      
+          </div>
+          <!-- Light Part -->
+          <div class="right0">
+            <div class="education0">
+              <h3 class="h30">Education</h3>
+              <table class="table table-striped" id="education-table" width="100%">
+                  <tr>
+                    <th>S.No</th>
+                    <th>Standard</th>
+                    <th>School / College</th>
+                    <th>Year of Passing</th>
+                    <th>Percentage</th>
+  
+  
+                  </tr>
+                <tbody id="tbleducationinfo">
+  
+                    <tr *ngFor="let education of educationDetails;let i=index">
+  
+                    <td *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{i+1}}</td>
+                    <td class="std" [froalaView]="educationDetails[i].Qualification" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Qualification}} >
+                    </td>
+                    <td class="std" [froalaView]="educationDetails[i].schoolName" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].schoolName}}></td>
+                    <td class="std" [froalaView]="educationDetails[i].yearOfPassing"*ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].yearOfPassing}}>
+                    </td>
+                    <td class="std" [froalaView]="educationDetails[i].Marks" *ngIf="education.Qualification!=''||education.schoolName!=''||education.yearOfPassing!=''||education.Marks!=''">{{educationDetails[i].Marks}}></td>
+  
+  
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+      
+            <div class="experience0">
+                <h3 class="h30">Experience</h3>
+              <hr>
+              <dd *ngFor="let experience of experiences;let i=index">
+                <h5 [froalaView]="experiences[i].designation" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].designation}} </h5>
+                <span [froalaView]="experiences[i].company" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].company}}</span><br>
+                <span [froalaView]="experiences[i].duration" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">{{experiences[i].duration}}</span>
+                <p [froalaView]="experiences[i].details" *ngIf="experience.company!=''||experience.duration!=''||experience.designation!=''||experience.details!=''">
+                    {{experiences[i].details}}
+                </p>
+            </dd>
+            </div>
+      
+      
+            <div *ngIf="links.activateHobbies==1">
+              <h3 class="h30">Hobbies</h3>
+              <hr>
+            
+                  
+                  <dd *ngFor="let hobby of hobbies;let i=index" [froalaView]="hobbies[i]">
+                      <p *ngIf="hobby!=''">{{hobbies[i]}}</p>
+                  </dd>
+            </div>
+      
+            <div *ngIf="links.activateInterests==1">
+            <div class="interest0">
+              <h3 class="h30">Interest</h3>
+              <hr>
+             
+                <dd *ngFor="let interest of interests;let i=index" [froalaView]="interests[i]">
+                    <p *ngIf="interest!=''">{{interests[i]}}</p>
+                </dd>
+            </div>
+      
+            </div>
+      
+            <div *ngIf="links.activateCertificates==1">
+            <div class="certificate0">
+              <h3 class="h30">Certificates</h3>
+              <hr>
+                  <dd *ngFor="let certificate of certificates;let i=index" [froalaView]="certificates[i]">
+                      <p *ngIf="certificate!=''">{{certificates[i]}}</p>
+                  </dd>
+            </div>
+              </div>
+            
+              <div *ngIf="links.activateLanguages==1">
+            <div class="language0">
+              <h3 class="h30">Languages</h3>
+              <hr> 
+              <dd *ngFor="let language of languages;let i=index" [froalaView]="languages[i]">
+                  <p *ngIf="language!=''">{{languages[i]}}</p>
+              </dd>
+            </div>
+             
+            </div>
+            <!--
+            <div class="summary0">
+              <h3 class="h30">Summary</h3>
+              <hr>
+      
+              <p class="p0">Our very first 3D Game Making experience from 2015. It is not much more than a virtual office you can walk through.
+                You can find it here:
+      
+              </p>
+      
+            </div>
+          -->
+          </div>
+        </div>
+  </div>
+  
+  <div class="footer">
+      <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
+      <button type="button" (click)="onLogin()" class="btn btn-primary" *ngIf='!login'>Login To Download Resume</button>
+      <button type="button" (click)="downloadPDF()" class="btn btn-primary" *ngIf='login'>Download</button>      
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!-- <nav  *ngIf="moreComponents==0">
+     
+  <ul >
+      
+      <br>
+    <li>
+      <a routerLink="personalDetails">Personal Details</a>
+    </li>
+    <li>
+      <a routerLink="education">Education</a>
+    </li>
+    <li>
+      <a routerLink="skills">Skills</a>
+    </li>
+    <li>
+      <a routerLink="experiences">Experience</a>
+    </li>
+    <li>
+      <a *ngIf="links.activateHobbies==1" routerLink="hobbies">Hobbies</a>
+    </li>
+    <li>
+      <a *ngIf="links.activateInterests==1" routerLink="interests">Interests</a>
+    </li>
+    <li>
+      <a *ngIf="links.activateCertificates==1" routerLink="certificates">Certificates</a>
+    </li>
+    <li>
+      <a *ngIf="links.activateLanguages==1" routerLink="languages">Languages</a>
+    </li>
+
+    <li>
+      <a class="btn btn-default" (click)="onAddSection()">Add New Section</a>
+    </li>
+ 
+<ul class="nav navbar-nav navbar-right" >
+  <li >
+    <button class="btn btn-default navbar-btn" (click)="onBackPage()">Back</button>
+  
+    
+  </li>
+ </ul>
+</ul>
+
+</nav>
+<nav *ngIf="moreComponents==1">
+  <ul>
+    <br>
+    <li>
+      <a>Personal Details</a>
+    </li>
+    <li>
+      <a>Education</a>
+    </li>
+    <li>
+        <a>Skills</a>
+      </li>
+    <li>
+      <a>Experience</a>
+    </li>
+   
+ 
+    <li>
+      <a>Hobbies&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-default navbar-btn" (click)="onAddHobbies()" *ngIf="sections.addHobbies==0">Add</button>
+        <button class="btn btn-default navbar-btn" (click)="onAddHobbies()" *ngIf="sections.addHobbies==1">Remove</button>
+      </a>
+    </li>
+    <li>
+      <a>Interests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-default navbar-btn" (click)="onAddInterests()" *ngIf="sections.addInterests==0">Add</button>
+        <button class="btn btn-default navbar-btn" (click)="onAddInterests()" *ngIf="sections.addInterests==1">Remove</button>
+      </a>
+    </li>
+    <li>
+      <a>Certificates&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-default navbar-btn" (click)="onAddCertificates()" *ngIf="sections.addCertificates==0">Add</button>
+        <button class="btn btn-default navbar-btn" (click)="onAddCertificates()" *ngIf="sections.addCertificates==1">Remove</button>
+      </a>
+    </li>
+    <li>
+      <a>Languages&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-default navbar-btn" (click)="onAddLanguagesKnown()" *ngIf="sections.addLanguagesKnown==0">Add</button>
+        <button class="btn btn-default navbar-btn" (click)="onAddLanguagesKnown()" *ngIf="sections.addLanguagesKnown==1">Remove</button>
+      </a>
+    </li>
+<ul class="nav navbar-nav navbar-right">
+    <li>
+      <button class="btn btn-default navbar-btn" (click)="onBack()">Back</button>
+    
+      <button class="btn btn-default navbar-btn" (click)="onSaveChanges()">Save Changes</button>
+    </li>
+</ul>
+  </ul>
+</nav> -->
+<div class="parent-container">
+    <div class="sidenav" *ngIf="moreComponents==0">
+            <a routerLink="personalDetails">Personal Details</a>
+            <a routerLink="education">Education</a>
+            <a routerLink="skills">Skills</a>
+            <a routerLink="experiences">Experience</a>
+            <a *ngIf="links.activateHobbies==1" routerLink="hobbies">Hobbies</a>
+            <a *ngIf="links.activateInterests==1" routerLink="interests">Interests</a>
+            <a *ngIf="links.activateCertificates==1" routerLink="certificates">Certificates</a>
+            <a *ngIf="links.activateLanguages==1" routerLink="languages">Languages</a>
+            <!-- <a *ngIf="links.activateSummary==1">Summary</a> -->
+            <br>
+            <br>
+            <div class="container">
+                    <button class="btn btn-default navbar-btn" (click)="onAddSection()">Add New Section</button>
+            </div>
+    <div class="footer">
+                    <button class="btn btn-default navbar-btn" (click)="onBackPage()">Back</button>
+                    <button class="btn btn-default navbar-btn" (click)="onPreview()">Preview</button>
+            </div>
+    </div>
+    
+    <div class="sidenav" *ngIf="moreComponents==1">
+            <a>Personal Details</a>
+            <a>Education</a>
+            <a>Experience</a>
+            <a>Skills</a>
+            <a>Hobbies&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default navbar-btn" (click)="onAddHobbies()" *ngIf="sections.addHobbies==0">Add</button>
+                    <button class="btn btn-default navbar-btn" (click)="onAddHobbies()" *ngIf="sections.addHobbies==1">Remove</button>
+            </a>
+            <a>Interests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default navbar-btn" (click)="onAddInterests()" *ngIf="sections.addInterests==0">Add</button>
+                    <button class="btn btn-default navbar-btn" (click)="onAddInterests()" *ngIf="sections.addInterests==1">Remove</button>
+            </a>
+            <a>Certificates&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default navbar-btn" (click)="onAddCertificates()" *ngIf="sections.addCertificates==0">Add</button>
+                    <button class="btn btn-default navbar-btn" (click)="onAddCertificates()" *ngIf="sections.addCertificates==1">Remove</button>
+            </a>
+            <a>Languages&nbsp;&nbsp;&nbsp;&nbsp;     
+                    <button class="btn btn-default navbar-btn" (click)="onAddLanguagesKnown()" *ngIf="sections.addLanguagesKnown==0">Add</button>
+                    <button class="btn btn-default navbar-btn" (click)="onAddLanguagesKnown()" *ngIf="sections.addLanguagesKnown==1">Remove</button>
+            </a>
+            <!-- <a>Summary&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-primary" (click)="onAddSummary()" *ngIf="sections.addSummary==0">Add</button>
+                    <button class="btn btn-primary" (click)="onAddSummary()" *ngIf="sections.addSummary==1">Remove</button>
+            </a> -->
+            <br>
+            <br>
+            <div class="container">
+                    <button class="btn btn-default navbar-btn" (click)="onBack()">Back</button>
+                    <button class="btn btn-default navbar-btn" (click)="onSaveChanges()">Save Changes</button>
+            </div>
+    </div>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>

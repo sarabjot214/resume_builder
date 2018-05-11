@@ -1,0 +1,31 @@
+<div class="container-fluid text-center">
+
+  <h3>
+    <i>
+      <b>CHOOSE RESUME TEMPLATE</b>
+    </i>
+  </h3>`
+  <hr>
+</div>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+      <button class="btn btn-primary" (click)="onPrev()">Prev</button>
+    </div>
+    <div class="col-lg-10 text-center" [ngSwitch]="templateId">
+      <img src="./assets/resume3.png" height="500" width="600" *ngSwitchCase="1">
+      <img src="./assets/Capture2.PNG" height="500" width="600" *ngSwitchCase="2">
+      <img src="./assets/resume2.png" height="500" width="600" *ngSwitchCase="3">
+      <img src="./assets/resume1.png" height="500" width="900" *ngSwitchCase="4">
+    </div>
+    <div class="col-lg-1">
+      <button class="btn btn-primary" (click)="onNext()">Next</button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid text-center">
+  <br>
+  <button class="btn btn-primary" (click)="onFirst()">Back</button>
+  <button class="btn btn-primary" (click)="onSuccess()">Build Resume</button>
+</div>
