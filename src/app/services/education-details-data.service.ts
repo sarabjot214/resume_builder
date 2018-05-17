@@ -17,14 +17,19 @@ export class EducationDetailsDataService {
 
   onSetEducationDetails(educationDetails){
     this.educationDetails=educationDetails;
+    localStorage.setItem('educationDetails', JSON.stringify(this.educationDetails));
   }
   onAddEducationDetails(){
+    this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
     this.educationDetails.push({
       schoolName:'',Qualification:'',Marks:'',yearOfPassing:''
     })
+    localStorage.setItem('educationDetails', JSON.stringify(this.educationDetails));
   }
   onRemoveEducationDetails(id){
+    this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
     this.educationDetails.splice(id,1);
+    localStorage.setItem('educationDetails', JSON.stringify(this.educationDetails));
   }
 
   onSetEducationId(id){

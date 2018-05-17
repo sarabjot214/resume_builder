@@ -48,17 +48,16 @@ export class ResumePreview2Component implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.links=this.dataStore.links;
-    this.personalDetails=this.personalDetailsData.personalDetails;
-    this.newFields=this.personalDetailsData.newFields;
-    this.educationDetails=this.educationDetailsData.educationDetails;
-    this.skills=this.skillsData.skills;
-    this.experiences=this.experienceData.experiences;
-    this.hobbies=this.hobbiesData.hobbies;
-    this.interests=this.interestsData.interests;
-    this.certificates=this.certificatesData.certificates;
-    this.languages=this.languagesData.languages;
-    this.login=this._dataService.login;
+    this.links=JSON.parse(localStorage.getItem('linkDetails'));
+    this.personalDetails=JSON.parse(localStorage.getItem('personalDetails'));
+    this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
+    this.skills=JSON.parse(localStorage.getItem('skillDetails'));
+    this.experiences=JSON.parse(localStorage.getItem('experienceDetails'));
+    this.hobbies=JSON.parse(localStorage.getItem('hobbyDetails'));
+    this.interests=JSON.parse(localStorage.getItem('interestDetails'));
+    this.certificates=JSON.parse(localStorage.getItem('certificateDetails'));
+    this.languages=JSON.parse(localStorage.getItem('languageDetails'));
+    this.login=JSON.parse(localStorage.getItem('loginDetails'));
   }
 
   onLogin(){

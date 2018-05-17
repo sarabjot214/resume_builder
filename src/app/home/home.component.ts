@@ -9,6 +9,7 @@ import { CertificatesDataService } from '../services/certificates-data.service';
 import { HobbiesDataService } from '../services/hobbies-data.service';
 import { InterestsDataService } from '../services/interests-data.service';
 import { LanguagesDataService } from '../services/languages-data.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit {
     private hobbiesData:HobbiesDataService,
     private interestsData:InterestsDataService,
     private certificatesData:CertificatesDataService,
-    private languagesData:LanguagesDataService
+    private languagesData:LanguagesDataService,
+    private _dataService: DataService
   ){}
 
   ngOnInit(){
@@ -66,7 +68,27 @@ export class HomeComponent implements OnInit {
   this.router.navigate(['index']);
 }  onSuccess(){
 
+    this._dataService.onStart();
     this.dataStore.onSetTemplateId(this.templateId,this.templateIdprev);
+    this.dataStore.onActivateLinks(
+      {
+        activateHobbies:0,
+        activateInterests:0,
+        activateCertificates:0,
+        activateLanguages:0,
+        activateSummary:0
+      }
+    )
+
+    this.dataStore.onAddSections(
+      {
+        addHobbies:0,
+        addInterests:0,
+        addCertificates:0,
+        addLanguagesKnown:0,
+        addSummary:0
+      }
+    )
 
     // PERSONAL DETAILS NULLIFY
     this.personalDetailsData.onSetPersonalDetails(

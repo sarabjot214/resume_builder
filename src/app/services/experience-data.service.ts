@@ -17,14 +17,19 @@ export class ExperienceDataService {
 
   onSetExperienceDetails(experiences){
     this.experiences=experiences;
+    localStorage.setItem('experienceDetails', JSON.stringify(this.experiences));
   }
   onAddExperienceDetails(){
+    this.experiences=JSON.parse(localStorage.getItem('experienceDetails'));
     this.experiences.push(
       {designation:'',company:'',duration:'',details:''}
     )
+    localStorage.setItem('experienceDetails', JSON.stringify(this.experiences));
   }
   onRemoveExperienceDetails(id){
+    this.experiences=JSON.parse(localStorage.getItem('experienceDetails'));
     this.experiences.splice(id,1);
+    localStorage.setItem('experienceDetails', JSON.stringify(this.experiences));
   }
 
   onSetExperienceId(id){

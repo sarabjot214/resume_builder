@@ -32,6 +32,12 @@ export class DataService {
 
   onSuccess(){
     this.login=true
+    localStorage.setItem('loginDetails', JSON.stringify(this.login));
+  }
+
+  onStart(){
+    this.login=false
+    localStorage.setItem('loginDetails', JSON.stringify(this.login));
   }
 
   // registerUsers(user){

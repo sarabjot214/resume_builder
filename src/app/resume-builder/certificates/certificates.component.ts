@@ -25,20 +25,28 @@ export class CertificatesComponent implements OnInit {
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
     private certificatesService:CertificatesDataService,
-    
-  ) { }
+    private window: Window
+  ) {
+      window.onbeforeunload = (ev) => {
+      console.log(this.certificates)
+      this.certificatesService.onSetCertificates(this.certificates);
+    }
+   }
 
   ngOnInit() {
     
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
-    this.certificates=this.certificatesService.certificates;
+    this.certificates=JSON.parse(localStorage.getItem('certificateDetails'));
+    console.log(this.certificates)
     this.id=this.certificatesService.certificateId;
     this.certificatesTitle=this.certificatesService.certificatesTitle;
   }
 
   onAddDetails(){
+    this.certificatesService.onSetCertificates(this.certificates);
     this.certificatesService.onAddCertificates();
+    this.certificates=JSON.parse(localStorage.getItem('certificateDetails'));
     this.id++;
     this.froalaId++;
   }
@@ -52,6 +60,7 @@ showPage() {
 }
 
   onRemoveDetails(id){
+    this.certificatesService.onSetCertificates(this.certificates);
     if(this.id>=1){
       this.certificatesService.onRemoveCertificates(id);
       this.id-1;
@@ -59,6 +68,7 @@ showPage() {
     if(this.froalaId>0){
       this.froalaId--;
     }
+    this.certificates=JSON.parse(localStorage.getItem('certificateDetails'));
   }
 
   onUpdateButton(buttonId){

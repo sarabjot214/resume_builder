@@ -23,24 +23,34 @@ export class InterestsComponent implements OnInit {
     private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
-    private interestsService:InterestsDataService
-  ) { }
+    private interestsService:InterestsDataService,
+    private window: Window
+  ) {
+      window.onbeforeunload = (ev) => {
+      console.log(this.interests)
+      this.interestsService.onSetInterests(this.interests);
+    }
+  }
 
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
-    this.interests=this.interestsService.interests;
+    this.interests=JSON.parse(localStorage.getItem('interestDetails'));
+    console.log(this.interests)
     this.id=this.interestsService.interestId;
     this.interestsTitle=this.interestsService.interestsTitle;
   }
 
   onAddDetails(){
+    this.interestsService.onSetInterests(this.interests);
     this.interestsService.onAddInterests();
+    this.interests=JSON.parse(localStorage.getItem('interestDetails'));
     this.id++;
     this.froalaId++;
   }
 
   onRemoveDetails(id){
+    this.interestsService.onSetInterests(this.interests);
     if(this.id>=1){
       this.interestsService.onRemoveInterests(id);
       this.id-1;
@@ -48,6 +58,7 @@ export class InterestsComponent implements OnInit {
     if(this.froalaId>0){
       this.froalaId--;
     }
+    this.interests=JSON.parse(localStorage.getItem('interestDetails'));
   }
 
   onUpdateButton(buttonId){

@@ -27,6 +27,7 @@ export class PersonalDetailsDataService {
 
   onSetPersonalDetails(personalDetails){
     this.personalDetails=personalDetails;
+    localStorage.setItem('personalDetails', JSON.stringify(this.personalDetails));
   }
 
   onSetNewFields(newFields){

@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { PersonalDetailsDataService } from '../../services/personal-details-data.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -15,13 +15,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class PersonalDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
-
     private router: Router,
     private route: ActivatedRoute,
     private resumeBuilder: ResumeBuilderComponent,
     private froalaEditor: FroalaEditorService,
-    private personalDetailsData: PersonalDetailsDataService
-  ) { }
+    private personalDetailsData: PersonalDetailsDataService,
+    private window: Window
+  ) { 
+    window.onbeforeunload = (ev) => {
+      console.log(this.personalDetails)
+      this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
+    }
+  }
 
   templateId: number;
   options: object;
@@ -38,7 +43,10 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
     this.templateId = this.resumeBuilder.templateId;
     this.options = this.froalaEditor.options;
     this.optionsImage = this.froalaEditor.imageOptions;
-    this.personalDetails = this.personalDetailsData.personalDetails;
+    // this.personalDetails = this.personalDetailsData.personalDetails;
+    this.personalDetails = JSON.parse(localStorage.getItem('personalDetails'));
+    console.log(this.personalDetails)
+    localStorage.removeItem('personalDetails'); // to clear it again.
     this.newFields = this.personalDetailsData.newFields;
     this.id = this.personalDetailsData.newFieldId;
   }
@@ -80,5 +88,7 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
   onPreview() {
     this.router.navigate([this.templateId])
   }
+
+  
 
 }

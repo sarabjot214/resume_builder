@@ -82,7 +82,8 @@ import { LogInComponent } from './log-in/log-in.component'
     CertificatesDataService,
     LanguagesDataService,
     DownloadService,
-    DataService
+    DataService,
+    {provide: Window, useValue: window }
   ],
   bootstrap: [AppComponent]
 })

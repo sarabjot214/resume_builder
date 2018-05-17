@@ -10,14 +10,19 @@ export class SkillsDataService {
 
   onSetSkillDetails(skills){
     this.skills=skills;
+    localStorage.setItem('skillDetails', JSON.stringify(this.skills));
   }
   onAddSkillDetails(){
+    this.skills=JSON.parse(localStorage.getItem('skillDetails'));
     this.skills.push({
       name:'',details:''
     })
+    localStorage.setItem('skillDetails', JSON.stringify(this.skills));
   }
   onRemoveSkillDetails(id){
+    this.skills=JSON.parse(localStorage.getItem('skillDetails'));
     this.skills.splice(id,1);
+    localStorage.setItem('skillDetails', JSON.stringify(this.skills));
   }
 
   onSetSkillId(id){

@@ -22,24 +22,34 @@ export class HobbiesComponent implements OnInit {
     private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
-    private hobbiesService:HobbiesDataService
-  ) { }
+    private hobbiesService:HobbiesDataService,
+    private window: Window
+  ) {
+      window.onbeforeunload = (ev) => {
+      console.log(this.hobbies)
+      this.hobbiesService.onSetHobbies(this.hobbies);
+    }
+  }
 
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
-    this.hobbies=this.hobbiesService.hobbies;
+    this.hobbies=JSON.parse(localStorage.getItem('hobbyDetails'));
+    console.log(this.hobbies)
     this.id=this.hobbiesService.hobbieId;
     this.hobbiesTitle=this.hobbiesService.hobbiesTitle;
   }
 
   onAddDetails(){
+    this.hobbiesService.onSetHobbies(this.hobbies);
     this.hobbiesService.onAddHobbies();
+    this.hobbies=JSON.parse(localStorage.getItem('hobbyDetails'));
     this.id++;
     this.froalaId++;
   }
 
   onRemoveDetails(id){
+    this.hobbiesService.onSetHobbies(this.hobbies);
     if(this.id>=1){
       this.hobbiesService.onRemoveHobbies(id);
       this.id-1;
@@ -47,6 +57,7 @@ export class HobbiesComponent implements OnInit {
     if(this.froalaId>0){
       this.froalaId--;
     }
+    this.hobbies=JSON.parse(localStorage.getItem('hobbyDetails'));
   }
 
   onUpdateButton(buttonId){

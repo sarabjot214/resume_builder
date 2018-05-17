@@ -17,8 +17,14 @@ export class EducationComponent implements OnInit ,OnDestroy{
     private route:ActivatedRoute,
     private resumeBuilder:ResumeBuilderComponent,
     private froalaEditor:FroalaEditorService,
-    private educationDetailsData:EducationDetailsDataService
-  ) { }
+    private educationDetailsData:EducationDetailsDataService,
+    private window: Window
+  ) {
+      window.onbeforeunload = (ev) => {
+      console.log(this.educationDetails)
+      this.educationDetailsData.onSetEducationDetails(this.educationDetails);
+    }
+   }
 
    templateId:number;
    options:object;
@@ -30,18 +36,23 @@ export class EducationComponent implements OnInit ,OnDestroy{
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
-    this.educationDetails=this.educationDetailsData.educationDetails;
+    this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
+    console.log(this.educationDetails)
     this.id=this.educationDetailsData.educationId;
     this.educationDetailsTitle=this.educationDetailsData.educationDetailsTitle;
     }
 
     onAddDetails(){
+      this.educationDetailsData.onSetEducationDetails(this.educationDetails)
       this.educationDetailsData.onAddEducationDetails();
+      this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
+      console.log(this.educationDetails)
       this.id++;
       this.froalaId++;
     }
 
     onRemoveDetails(id){
+      this.educationDetailsData.onSetEducationDetails(this.educationDetails)
       if(this.id>=1){
         this.educationDetailsData.onRemoveEducationDetails(id);
         this.id-1;
@@ -49,6 +60,7 @@ export class EducationComponent implements OnInit ,OnDestroy{
       if(this.froalaId>0){
         this.froalaId--;
       }
+      this.educationDetails=JSON.parse(localStorage.getItem('educationDetails'));
     }
 
     onUpdateButton(buttonId){

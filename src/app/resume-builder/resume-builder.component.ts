@@ -15,10 +15,18 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   public templateId:number;
   moreComponents:number=0;
 
-  constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService,private window: Window) {
+      window.onbeforeunload = (ev) => {
+      console.log(this.links)
+      this.dataStore.onActivateLinks(this.links);
+      console.log(this.sections)
+      this.dataStore.onAddSections(this.sections);
+    }
+   }
 
   ngOnInit() {
-    this.links=this.dataStore.links;
+    this.links=JSON.parse(localStorage.getItem('linkDetails'));
+    console.log(this.links)
     this.templateId=this.route.snapshot.params['id'];
   }
 
@@ -50,10 +58,13 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
 
   onAddSection(){
     this.moreComponents=1;
-    this.sections=this.dataStore.sections;
+    this.sections=JSON.parse(localStorage.getItem('sectionDetails'));
+    console.log(this.sections)
   }
 
   onSaveChanges(){
+    this.dataStore.onAddSections(this.sections)
+    this.sections=JSON.parse(localStorage.getItem('sectionDetails'));
     if(this.sections.addHobbies==1){
       this.links.activateHobbies=1;
     }
@@ -88,11 +99,13 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     else{
       this.links.activateSummary=0;
     }
-    this.dataStore.onAddSections(this.sections)
+    this.dataStore.onActivateLinks(this.links)
+    this.links=JSON.parse(localStorage.getItem('linkDetails'));
     this.moreComponents=0;
   }
 
   onBack(){
+    this.links=JSON.parse(localStorage.getItem('linkDetails'));
     if(this.moreComponents==1){
       if(this.links.activateHobbies==1){this.sections.addHobbies=1}else{this.sections.addHobbies=0}
       if(this.links.activateInterests==1){this.sections.addInterests=1}else{this.sections.addInterests=0}
@@ -111,6 +124,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     else{
       this.sections.addHobbies=0;
     }
+    
   }
 
   onAddInterests(){
@@ -120,6 +134,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
     else{
       this.sections.addInterests=0;
     }
+    
   }
 
   onAddCertificates(){
@@ -150,6 +165,7 @@ export class ResumeBuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
+    this.links=JSON.parse(localStorage.getItem('linkDetails'));
     if(this.moreComponents==1){   
       if(this.links.activateHobbies==1){this.sections.addHobbies=1}else{this.sections.addHobbies=0}
       if(this.links.activateInterests==1){this.sections.addInterests=1}else{this.sections.addInterests=0}

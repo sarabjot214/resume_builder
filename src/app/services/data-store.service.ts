@@ -31,9 +31,11 @@ export class DataStoreService {
 
   onActivateLinks(links){
     this.links=links;
+    localStorage.setItem('linkDetails', JSON.stringify(this.links));
   }
 
   onAddSections(sections){
     this.sections=sections;
+    localStorage.setItem('sectionDetails', JSON.stringify(this.sections));
   }
 }
