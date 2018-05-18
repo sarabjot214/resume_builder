@@ -4,16 +4,6 @@ const {ObjectID}=require('mongodb');
 var mongoose = require('mongoose');
 const {Mongoose}=require('./mongoose-connect')
 var {User}=require('../routes/users-model')
-// var User = mongoose.model('Users');
-// const { register, login }=require('../controllers/authentication')
-// const ctrlProfile=require('../controllers/profile')
-// const profileRead=ctrlProfile.profileRead;
-
-// var jwt = require('express-jwt');
-// var auth = jwt({
-//   secret: 'MY_SECRET',
-//   userProperty: 'payload'
-// });
 
 
 //Response Handling
@@ -24,19 +14,12 @@ let response={
 };
 
 router.get('/user',(req,res)=>{
-    
     User.find().then(result=>{
         response.data=result;
         res.json(response)
     },err=>{
         console.log('Unable to find data'+err);
     });
-    
-    // User.findOne({ name: "someName" }, function (err, user) {
-    //     if (err) console.log (err);
-    //     if (!user) console.log ('user not found');
-    //     // do something with user
-    // });
   
   
 })
@@ -60,25 +43,13 @@ router.post('/login',(req,res)=>{
         if (user) {
             console.log('Authenticated as '+ user.name)
             res.send(user)
-            // req.session.regenerate(function () {
-
-            //     req.session.user = user;
-            //     req.session.success = 'Authenticated as ' + user.username + ' click to <a href="/logout">logout</a>. ' + ' You may now access <a href="/restricted">/restricted</a>.';
-            //     res.redirect('/');
-            // });
         } else {
             console.log('Authentication Failed')
             res.send({})
-            // req.session.error = 'Authentication failed, please check your ' + ' username and password.';
-            // res.redirect('/login');
         }
     });
 })
-// router.post('/register',register)
 
-// router.post('/login',login)
-
-// router.get('/profile', auth, profileRead);
 function authenticate(username, pass, fn) {
     console.log(username)
     User.findOne({

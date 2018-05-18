@@ -110,11 +110,11 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    this.personalDetailsData.onSetNewFields(
-      []
-    );
+    // this.personalDetailsData.onSetNewFields(
+    //   []
+    // );
 
-    this.personalDetailsData.onSetNewFieldsId(0);
+    // this.personalDetailsData.onSetNewFieldsId(0);
 
     // EDUCATION DETAILS NULLIFY
     this.educationDetailsData.onSetEducationDetails(

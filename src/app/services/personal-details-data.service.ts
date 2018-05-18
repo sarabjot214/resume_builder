@@ -30,22 +30,22 @@ export class PersonalDetailsDataService {
     localStorage.setItem('personalDetails', JSON.stringify(this.personalDetails));
   }
 
-  onSetNewFields(newFields){
-    this.newFields=newFields;
-  }
+  // onSetNewFields(newFields){
+  //   this.newFields=newFields;
+  // }
 
-  onAddNewFields(){
-    this.newFields.push({
-      fieldName:'Field:',fieldInfo:'Info'
-    });
-  }
+  // onAddNewFields(){
+  //   this.newFields.push({
+  //     fieldName:'Field:',fieldInfo:'Info'
+  //   });
+  // }
 
-  onRemoveNewFields(){
-    this.newFields.pop();
-  }
+  // onRemoveNewFields(){
+  //   this.newFields.pop();
+  // }
 
-  onSetNewFieldsId(id){
-    this.newFieldId=id;
-  }
+  // onSetNewFieldsId(id){
+  //   this.newFieldId=id;
+  // }
 
 }

@@ -22,4 +22,19 @@ export class DownloadService {
   });
 }
 
+downloadNext(){
+    
+  html2canvas(document.getElementsByTagName("body")[0]).then(function(canvas) {
+  
+    var img = canvas.toDataURL('image/png');
+    window.open(img);
+    var doc = new jsPDF("l", "px", "a4");
+    var width = doc.internal.pageSize.width;    
+    var height = doc.internal.pageSize.height;
+    
+    doc.addImage(img,'JPEG',0,0,width, height);
+    doc.save('test.pdf');
+});
+}
+
 }

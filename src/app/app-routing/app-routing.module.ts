@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes,RouterModule} from '@angular/router';
+import { Routes , RouterModule} from '@angular/router';
 
 import { IndexPageComponent } from '../index-page/index-page.component';
 import { HomeComponent } from '../home/home.component';
@@ -17,19 +17,18 @@ import { ResumePreviewComponent } from '../resume-preview/resume-preview.compone
 import { ResumePreview1Component } from '../resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from '../resume-preview-2/resume-preview-2.component';
 import { ResumePreview3Component } from '../resume-preview-3/resume-preview-3.component';
-import { SignUpComponent } from '../sign-up/sign-up.component';
 import { LogInComponent } from '../log-in/log-in.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+
 
 
 
 const appRoute:Routes=[
   {path:'',redirectTo:'/index',pathMatch:'full'},
   {path:'index',component:IndexPageComponent},
-  {path:'log-in',component:LogInComponent},
-  {path:'sign-up',component:SignUpComponent},
   {path:'home',component:HomeComponent},
   {path:'resumeDetails/:id',component:ResumeBuilderComponent,children:[
-    { path: '', redirectTo: 'personalDetails', pathMatch: 'full' },
+    {path: '', redirectTo: 'personalDetails', pathMatch: 'full' },
     {path:'personalDetails',component:PersonalDetailsComponent},
     {path:'education',component:EducationComponent},
     {path:'skills',component:SkillsComponent},
@@ -43,6 +42,8 @@ const appRoute:Routes=[
   {path:'2',component:ResumePreview1Component},
   {path:'3',component:ResumePreview2Component},
   {path:'4',component:ResumePreview3Component},
+  {path:'log-in',component:LogInComponent},
+  {path:'sign-up',component:SignUpComponent}
 ];
 
 @NgModule({

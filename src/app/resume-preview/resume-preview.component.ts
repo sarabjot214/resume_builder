@@ -33,17 +33,7 @@ export class ResumePreviewComponent implements OnInit {
   
   constructor(
     private route:Router,
-    private dataStore:DataStoreService,
-    private personalDetailsData:PersonalDetailsDataService,
-    private educationDetailsData:EducationDetailsDataService,
-    private skillsData:SkillsDataService,
-    private experienceData:ExperienceDataService,
-    private hobbiesData:HobbiesDataService,
-    private interestsData:InterestsDataService,
-    private certificatesData:CertificatesDataService,
-    private languagesData:LanguagesDataService,
-    private downloadData:DownloadService,
-    private _dataService: DataService 
+    private downloadData:DownloadService
   ) { }
 
   ngOnInit() {

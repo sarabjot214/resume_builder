@@ -37,13 +37,11 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
   froalaId: number = 1;
   newFieldsFroalaId: number = -1;
   dateValidFlag = 0;
-  // regex=/(\s|)[0-9]{1,2}(\s|)((\/[0-9]{1,2}\/[0-9]{4})|([a-z]{3,8}(\s|)[,](\s|)[0-9]{4}))(\s|)/gmi;
 
   ngOnInit() {
     this.templateId = this.resumeBuilder.templateId;
     this.options = this.froalaEditor.options;
     this.optionsImage = this.froalaEditor.imageOptions;
-    // this.personalDetails = this.personalDetailsData.personalDetails;
     this.personalDetails = JSON.parse(localStorage.getItem('personalDetails'));
     console.log(this.personalDetails)
     localStorage.removeItem('personalDetails'); // to clear it again.
@@ -55,25 +53,25 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
     this.froalaId = froalaId;
   }
 
-  onAddDetails() {
-    this.personalDetailsData.onAddNewFields();
-    this.froalaId = 7;
-    this.id++;
-    this.newFieldsFroalaId++;
-  }
+  // onAddDetails() {
+  //   this.personalDetailsData.onAddNewFields();
+  //   this.froalaId = 7;
+  //   this.id++;
+  //   this.newFieldsFroalaId++;
+  // }
 
-  onRemoveDetails() {
-    if (this.id >= 0) {
-      this.personalDetailsData.onRemoveNewFields();
-      this.id--;
-    }
-    if (this.newFieldsFroalaId > -1) {
-      this.newFieldsFroalaId--;
-    }
-    if (this.newFieldsFroalaId == -1) {
-      this.froalaId = 5;
-    }
-  }
+  // onRemoveDetails() {
+  //   if (this.id >= 0) {
+  //     this.personalDetailsData.onRemoveNewFields();
+  //     this.id--;
+  //   }
+  //   if (this.newFieldsFroalaId > -1) {
+  //     this.newFieldsFroalaId--;
+  //   }
+  //   if (this.newFieldsFroalaId == -1) {
+  //     this.froalaId = 5;
+  //   }
+  // }
 
   onUpdateButton(froalaId, buttonId) {
     this.froalaId = froalaId;
@@ -82,8 +80,8 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
-    this.personalDetailsData.onSetNewFields(this.newFields);
-    this.personalDetailsData.onSetNewFieldsId(this.id);
+    // this.personalDetailsData.onSetNewFields(this.newFields);
+    // this.personalDetailsData.onSetNewFieldsId(this.id);
   }
   onPreview() {
     this.router.navigate([this.templateId])

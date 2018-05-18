@@ -9,8 +9,7 @@ export class EducationDetailsDataService {
     schoolnametitle:'School/College',
     Qualificationtitle:'Qualification',
     Markstitle:'Marks',
-    yearOfPassingtitle:'Duration'
-
+    yearOfPassingtitle:'PassoutYear'
   }
   educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[]=[{schoolName:'',Qualification:'',Marks:'',yearOfPassing:''}];
   educationId:number=0;

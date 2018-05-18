@@ -10,27 +10,24 @@
       
       
             <div class="objective3">
-              <img class="objective-img3" src="https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-128.png">
               <div class="objective-text3">
                 <h4>Profession:</h4>
                 <p [froalaView]="personalDetails.profession">{{personalDetails.profession}}</p>
                 <hr>
-                <h4>
+                <h6>
                   DOB:
-                </h4>
+                </h6>
                 <p [froalaView]="personalDetails.dob">{{personalDetails.dob}}</p>
       
               </div>
             </div>
             <div class="phone3">
-              <img class="objective-img3" src="http://icons.iconarchive.com/icons/icons8/android/512/Mobile-Phone-2-icon.png">
               <div class="phone-text3" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}
                 <br>mobile
                 <br>
               </div>
             </div>
             <div class="email3">
-              <img class="objective-img3" src="http://static.wixstatic.com/media/d822a6_af29afe70e1a4e9891f94a627914b6ec.png">
               <div class="email-text3" [froalaView]="personalDetails.email">{{personalDetails.email}}
                 <br>personal
                 <br>
@@ -160,10 +157,9 @@
         </div>
       -->
   </div>
-
+</body>
   <div class="footer">
     <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
     <button type="button" (click)="onLogin()" class="btn btn-primary" *ngIf='!login'>Login To Download Resume</button>
       <button type="button" (click)="downloadPDF()" class="btn btn-primary" *ngIf='login'>Download</button> 
   </div>
-</body>

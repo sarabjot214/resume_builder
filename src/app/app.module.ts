@@ -2,13 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule} from '@angular/http'
 import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import "froala-editor/js/froala_editor.pkgd.min.js";
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import * as $ from 'jquery'
-window["$"] = $;
-window["jQuery"] = $;
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +23,8 @@ import { ResumePreviewComponent } from './resume-preview/resume-preview.componen
 import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
 import { ResumePreview3Component } from './resume-preview-3/resume-preview-3.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LogInComponent } from './log-in/log-in.component'
 
 import { DataStoreService } from './services/data-store.service';
 import { FroalaEditorService } from './services/froala-editor.service';
@@ -40,9 +38,6 @@ import { CertificatesDataService } from './services/certificates-data.service';
 import { LanguagesDataService } from './services/languages-data.service';
 import { DownloadService } from './services/download.service';
 import {DataService} from './data.service';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { LogInComponent } from './log-in/log-in.component'
-
 
 @NgModule({
   declarations: [
@@ -67,7 +62,7 @@ import { LogInComponent } from './log-in/log-in.component'
 
   ],
   imports: [
-    BrowserModule,HttpModule,FormsModule,AppRoutingModule,AngularFontAwesomeModule ,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),NgbModule.forRoot()
+    BrowserModule, HttpModule, FormsModule, AppRoutingModule, AngularFontAwesomeModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(), NgbModule.forRoot()
   ],
   providers: [
     ResumeBuilderComponent,
