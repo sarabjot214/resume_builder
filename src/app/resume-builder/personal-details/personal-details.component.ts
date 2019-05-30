@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ResumeBuilderComponent } from '../resume-builder.component';
 import { FroalaEditorService } from '../../services/froala-editor.service';
 import { PersonalDetailsDataService } from '../../services/personal-details-data.service';
+import { DataService } from '../../data.service'
 
 
 @Component({
@@ -20,11 +21,15 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
     private resumeBuilder: ResumeBuilderComponent,
     private froalaEditor: FroalaEditorService,
     private personalDetailsData: PersonalDetailsDataService,
+    private _dataService: DataService,
     private window: Window
   ) { 
     window.onbeforeunload = (ev) => {
       console.log(this.personalDetails)
-      this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
+      this.personalDetailsData.onSetPersonalDetails(this.personalDetails,false,null)
+      .subscribe(data=>{
+        console.log('User Details Saved Successfully',data);
+      });
     }
   }
 
@@ -79,7 +84,8 @@ export class PersonalDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
+    console.log(this._dataService.login, this._dataService.currentUserId)
+    this.personalDetailsData.onSetPersonalDetails(this.personalDetails, this._dataService.login, this._dataService.currentUserId);
     // this.personalDetailsData.onSetNewFields(this.newFields);
     // this.personalDetailsData.onSetNewFieldsId(this.id);
   }

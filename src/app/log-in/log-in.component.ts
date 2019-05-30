@@ -33,6 +33,7 @@ export class LogInComponent implements OnInit {
       else{
         this._dataService.onSuccess();
         console.log('Success '+data.name)
+        this._dataService.currentUserId = data._id
         this.router.navigate([this.dataStore.templateId])
       }
     });

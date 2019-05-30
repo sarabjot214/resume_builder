@@ -107,7 +107,9 @@ export class HomeComponent implements OnInit {
         emailtitle:'Email',
         addresstitle:'Address',
         imagetitle:'Image'
-      }
+      },
+      false,
+      null
     );
 
     // this.personalDetailsData.onSetNewFields(

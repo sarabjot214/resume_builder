@@ -14,17 +14,17 @@ export class SignUpComponent implements OnInit {
   @ViewChild ('f') signUpForm:NgForm;
   user:{name:string,email:string,password:string}={name:'',email:'',password:''};
   valid=false
-  validCredentials=true
-
+  validCredentials = true
+  
   constructor(private _dataService: DataService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
   }
 
-  // onSignIn(){
-  //   this._dataService.addUsers(this.user)
-  //   .subscribe(data=>{console.log('Success '+data)});
-  // }
+  onSignIn(){
+    this._dataService.addUsers(this.user)
+    .subscribe(data=>{console.log('Success '+data)});
+  }
 
   // onSubmit(form:NgForm){
   //   console.log('Submitted Successfully');
@@ -36,6 +36,7 @@ export class SignUpComponent implements OnInit {
     console.log(this.signUpForm);
     this._dataService.addUsers(this.user)
     .subscribe(data=>{
+      console.log(data);
       if(this.isEmptyObject(data)){
         console.log('Authentication Failed')
         this.validCredentials=false
